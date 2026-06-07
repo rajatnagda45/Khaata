@@ -1,6 +1,7 @@
-# 🚀 Invoice Management Dashboard
 
 <div align="center">
+
+# 🚀 Invoice Management Dashboard
 
 ### 💼 Production-Grade Full-Stack Invoice Management Platform
 
@@ -490,24 +491,7 @@ amountMax
 
 ---
 
-# 👨‍💻 Developed For
-
-### Powerplay — Full Stack Developer Internship Assignment
-
-Built with a focus on:
-
-- Software Engineering Best Practices
-- Clean Architecture
-- Scalability
-- Performance
-- Developer Experience
-- Production Readiness
-
----
-
 <div align="center">
-
-### ⭐ Thank you for reviewing this submission!
 
 Built with ❤️, ☕ and lots of MongoDB aggregations.
 
