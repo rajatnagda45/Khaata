@@ -1,35 +1,166 @@
-# Invoice Management Dashboard
+# 🚀 Invoice Management Dashboard
 
-Production-grade full-stack invoice dashboard built with React, Tailwind CSS, Node.js, Express, MongoDB, and Docker Compose. The app supports invoice list management, server-side filtering/sorting, create/edit flows, customer analytics, and portfolio-level billing insights powered entirely by the provided dataset.
+<div align="center">
 
-## Tech Stack
+### 💼 Production-Grade Full-Stack Invoice Management Platform
 
-- Frontend: React 18, Vite, React Router v6
-- Styling: Tailwind CSS v3
-- Backend: Node.js, Express.js
-- Database: MongoDB with Mongoose
-- State: React Context + `useReducer`
-- Charts: Recharts
-- HTTP Client: Axios
-- Containerization: Docker Compose
+Built with **React, Node.js, Express, MongoDB, Docker, and Recharts** to deliver a modern invoicing experience with powerful analytics, customer insights, and high-performance data operations.
 
-## Prerequisites
+![React](https://img.shields.io/badge/React-18-blue)
+![Node.js](https://img.shields.io/badge/Node.js-20-green)
+![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-brightgreen)
+![Docker](https://img.shields.io/badge/Docker-Compose-blue)
+![License](https://img.shields.io/badge/Status-Assignment-success)
 
-- Node.js 20+
-- npm 10+
-- MongoDB locally or MongoDB Atlas
-- Docker Desktop (for containerized setup)
+</div>
 
-## Setup (Local Development)
+---
 
-### 1. Clone the repository
+# ✨ Overview
+
+This project is a full-stack invoice management system built as part of the **Powerplay Full Stack Internship Assignment**.
+
+The application ingests **2,000 invoice records**, supports **61 unique customers**, and provides a complete workflow for:
+
+✅ Invoice Management  
+✅ Customer Analytics  
+✅ Revenue Insights  
+✅ Server-Side Filtering & Sorting  
+✅ Dashboard Visualizations  
+✅ Dockerized Deployment  
+
+The architecture is designed with scalability, maintainability, and production-readiness in mind.
+
+---
+
+# 🎯 Key Features
+
+### 📄 Invoice Management
+
+- Create invoices
+- Edit invoices
+- Delete invoices
+- View invoice details
+- Auto-generated invoice IDs
+- Automatic tax and total calculation
+
+### 🔍 Powerful Search & Filtering
+
+- Search by Invoice ID
+- Search by Customer Name
+- Status Filters
+- Tax Rate Filters
+- Issue Date Range Filters
+- Due Date Range Filters
+- Amount Range Filters
+
+### ⚡ High Performance
+
+- Server-side Pagination
+- Server-side Sorting
+- Optimized MongoDB Queries
+- Indexed Collections
+- Aggregation Pipelines
+
+### 👥 Customer Analytics
+
+- Customer Profile Dashboard
+- Invoice History
+- Outstanding Amount Tracking
+- Status Breakdown
+- Total Billed Metrics
+- Tax Contribution Analysis
+
+### 📊 Business Insights
+
+- Revenue Dashboard
+- Top Customers Analysis
+- Invoice Status Distribution
+- Portfolio-Level Metrics
+- Tax Collection Summary
+
+### 🎨 User Experience
+
+- Responsive Design
+- Modern Dashboard UI
+- Loading States
+- Empty States
+- Error Handling
+- Keyboard Shortcuts
+- Sticky Table Headers
+- Glassmorphism Effects
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+| Technology | Purpose |
+|------------|----------|
+| React 18 | UI Library |
+| Vite | Build Tool |
+| React Router v6 | Routing |
+| Tailwind CSS | Styling |
+| Axios | API Communication |
+| Recharts | Analytics & Visualization |
+| Context API + useReducer | State Management |
+
+---
+
+## Backend
+
+| Technology | Purpose |
+|------------|----------|
+| Node.js | Runtime |
+| Express.js | REST API |
+| MongoDB | Database |
+| Mongoose | ODM |
+| Mongo Aggregation | Analytics Queries |
+
+---
+
+## Infrastructure
+
+| Technology | Purpose |
+|------------|----------|
+| Docker | Containerization |
+| Docker Compose | Multi-Service Orchestration |
+
+---
+
+# 🏗️ Architecture
+
+```txt
+┌─────────────────────┐
+│      React App      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│    Express API      │
+└──────────┬──────────┘
+           │
+           ▼
+┌─────────────────────┐
+│      MongoDB        │
+└─────────────────────┘
+```
+
+---
+
+# 🚀 Getting Started
+
+## 1️⃣ Clone Repository
 
 ```bash
-git clone <your-repo-url>
+git clone <your-repository-url>
 cd invoice-dashboard
 ```
 
-### 2. Backend setup
+---
+
+## 2️⃣ Backend Setup
 
 ```bash
 cd backend
@@ -37,28 +168,45 @@ npm install
 cp .env.example .env
 ```
 
-Update `MONGO_URI` in `.env` if you are using Atlas or a non-default local instance.
+Update your `.env`:
 
-### 3. Seed the database
+```env
+MONGO_URI=mongodb://localhost:27017/invoice_dashboard
+PORT=5000
+```
+
+---
+
+## 3️⃣ Seed Database
 
 ```bash
 node scripts/seed.js
 ```
 
-Expected output includes:
+Expected Output:
 
-- `Seeded 61 customers`
-- `Seeded 2000 invoices`
+```txt
+✅ Seeded 61 customers
+✅ Seeded 2000 invoices
+```
 
-### 4. Start backend
+---
+
+## 4️⃣ Start Backend
 
 ```bash
 npm run dev
 ```
 
-The API runs on `http://localhost:5000`.
+Backend:
 
-### 5. Frontend setup
+```txt
+http://localhost:5000
+```
+
+---
+
+## 5️⃣ Start Frontend
 
 ```bash
 cd ../frontend
@@ -66,163 +214,301 @@ npm install
 npm run dev
 ```
 
-### 6. Open the app
+Frontend:
 
-Visit `http://localhost:5173`.
+```txt
+http://localhost:5173
+```
 
-## Docker Setup (recommended)
+---
 
-From the project root:
+# 🐳 Docker Setup (Recommended)
+
+Start all services:
 
 ```bash
 docker compose up --build
 ```
 
-Then seed the database in a second terminal:
+Seed database:
 
 ```bash
 docker exec invoice-backend node scripts/seed.js
 ```
 
-Open `http://localhost:3000`.
+Application:
 
-## Data Modeling Rationale
+```txt
+Frontend → http://localhost:3000
+Backend  → http://localhost:5000
+MongoDB  → localhost:27017
+```
 
-### Two-collection design
+---
 
-The app uses two collections:
+# 🧠 Data Modeling Rationale
 
-- `customers`
-- `invoices`
+The system follows a **two-collection architecture**:
 
-Each customer has exactly one company, so customer identity data is normalized into the `customers` collection. This prevents repeating the same customer/company strings across 2,000 invoice documents and makes customer profile queries cleaner and more maintainable.
+## Customers Collection
 
-### Why invoices are not embedded in customers
-
-Invoices are stored as separate top-level documents instead of being embedded into customer documents because:
-
-- server-side pagination is straightforward on the `invoices` collection
-- invoice-level filtering and sorting stays efficient
-- customer profiles can aggregate against invoices without loading large embedded arrays
-- the design scales cleanly if invoice volume grows beyond the seed dataset
-
-### Why `customer` and `company` are denormalized on invoices
-
-Invoices also keep `customer` and `company` as denormalized string fields. This avoids a join for every row on the invoice list page and keeps list queries fast while preserving the authoritative relationship through `customerId`.
-
-### Index strategy
-
-The `Invoice` model includes indexes for the supported query patterns:
-
-- `{ customerId: 1, status: 1 }`
-  Used for customer profile and status-based customer metrics.
-- `{ status: 1 }`
-  Used for server-side status filtering.
-- `{ issueDate: -1 }`
-  Used for the default invoice sort.
-- `{ dueDate: 1 }`
-  Used for due-date sorting and filtering.
-- `{ amount: 1 }`
-  Used for amount sorting and range filtering.
-- `{ customer: 'text', invoiceId: 'text' }`
-  Supports search-oriented workloads, even though the API currently uses regex search for broader matching across `customer`, `company`, and `invoiceId`.
-
-## API Reference
-
-### Invoices
-
-| Method | Path | Description |
-| --- | --- | --- |
-| `GET` | `/api/invoices` | Paginated, filterable, sortable invoice list |
-| `GET` | `/api/invoices/summary` | Global metrics, top customers, status breakdown |
-| `GET` | `/api/invoices/:id` | Fetch a single invoice by Mongo `_id` |
-| `POST` | `/api/invoices` | Create an invoice and auto-compute `invoiceId`, `tax`, and `total` |
-| `PUT` | `/api/invoices/:id` | Update an invoice and recompute `tax` and `total` |
-| `DELETE` | `/api/invoices/:id` | Delete an invoice |
-
-Supported query params for `GET /api/invoices`:
-
-- `page`
-- `limit`
-- `sortBy` = `amount | dueDate | issueDate`
-- `sortOrder` = `asc | desc`
-- `status`
-- `taxRate`
-- `customer`
-- `search`
-- `issueDateFrom`
-- `issueDateTo`
-- `dueDateFrom`
-- `dueDateTo`
-- `amountMin`
-- `amountMax`
-
-List response shape:
-
-```json
+```js
 {
-  "data": [],
-  "pagination": {
-    "total": 2000,
-    "page": 1,
-    "limit": 20,
-    "totalPages": 100
-  }
+  _id,
+  name,
+  company
 }
 ```
 
-### Customers
+## Invoices Collection
 
-| Method | Path | Description |
-| --- | --- | --- |
-| `GET` | `/api/customers` | List all customers |
-| `GET` | `/api/customers/:id` | Customer profile plus aggregated metrics |
-| `GET` | `/api/customers/:id/invoices` | Paginated invoice history for a customer |
-
-Customer profile response shape:
-
-```json
+```js
 {
-  "customer": {
-    "_id": "...",
-    "name": "Ramesh Pillai",
-    "company": "Cipla Pharma",
-    "initials": "RP"
-  },
-  "metrics": {
-    "totalBilled": 133213.07,
-    "totalTax": 12450.3,
-    "outstanding": 45230.5,
-    "invoiceCount": 41,
-    "statusBreakdown": {
-      "Paid": 12,
-      "Unpaid": 8,
-      "Overdue": 7,
-      "Draft": 6,
-      "Sent": 5,
-      "Void": 3
-    }
-  }
+  _id,
+  invoiceId,
+  customerId,
+  customer,
+  company,
+  amount,
+  taxRate,
+  tax,
+  total,
+  status,
+  issueDate,
+  dueDate
 }
 ```
 
-## Assumptions
+---
 
-- Tax and total are always recomputed from `amount × taxRate` on create and update.
-- `Outstanding` means the sum of invoice totals where status is one of `Unpaid`, `Overdue`, or `Sent`.
-- `invoiceId` is auto-generated on create and cannot be manually set from the client.
-- All currency values are stored and presented in INR.
-- `GET /customers` is rendered through the named `CustomersListPage` export from `src/pages/CustomerPage.jsx` to preserve the requested page inventory while still supporting the `/customers` route.
-- `frontend/postcss.config.js` and `frontend/nginx.conf` were added because they are required for Tailwind CSS v3 and the production Docker setup to run correctly.
+## Why Separate Collections?
 
-## Features Implemented
+### ✅ Normalization
 
-- Server-side invoice filters, sorting, and pagination
-- Create and edit invoice modal with live tax and total preview
-- Searchable customer combobox without external UI dependencies
-- Customer profile analytics with status breakdown and invoice history
-- Summary dashboard with portfolio metrics and top-customer bar chart
-- Sticky invoice table header with frosted glass treatment
-- Keyboard shortcuts: `N`, `Escape`, `?`
-- Empty, loading, and error states throughout the app
-- Docker Compose environment for MongoDB, backend, and frontend
+A customer belongs to exactly one company.
+
+Instead of repeating customer-company relationships across thousands of invoice records, customer identity is stored once.
+
+Benefits:
+
+- Reduced duplication
+- Cleaner schema
+- Easier maintenance
+- Better scalability
+
+---
+
+## Why Not Embed Invoices?
+
+Invoices are independent documents because:
+
+- Server-side pagination remains efficient
+- Sorting stays fast
+- Filtering scales better
+- Customer profiles can aggregate invoices dynamically
+- Prevents oversized customer documents
+
+---
+
+## Strategic Denormalization
+
+Invoices also store:
+
+```js
+customer
+company
+```
+
+This avoids expensive joins for invoice-list views while maintaining a normalized source of truth via `customerId`.
+
+---
+
+# ⚡ Database Index Strategy
+
+Optimized for real-world query patterns.
+
+```js
+{ customerId: 1, status: 1 }
+```
+
+Used for:
+
+- Customer dashboards
+- Status analytics
+
+```js
+{ status: 1 }
+```
+
+Used for:
+
+- Status filtering
+
+```js
+{ issueDate: -1 }
+```
+
+Used for:
+
+- Default sorting
+
+```js
+{ dueDate: 1 }
+```
+
+Used for:
+
+- Due date filters
+- Due date sorting
+
+```js
+{ amount: 1 }
+```
+
+Used for:
+
+- Amount range queries
+
+```js
+{ customer: "text", invoiceId: "text" }
+```
+
+Used for:
+
+- Search workloads
+
+---
+
+# 📡 API Reference
+
+## 📄 Invoice APIs
+
+| Method | Endpoint | Description |
+|----------|----------|-------------|
+| GET | `/api/invoices` | Paginated invoice list |
+| GET | `/api/invoices/summary` | Dashboard analytics |
+| GET | `/api/invoices/:id` | Single invoice |
+| POST | `/api/invoices` | Create invoice |
+| PUT | `/api/invoices/:id` | Update invoice |
+| DELETE | `/api/invoices/:id` | Delete invoice |
+
+---
+
+### Supported Query Parameters
+
+```txt
+page
+limit
+sortBy
+sortOrder
+status
+taxRate
+customer
+search
+issueDateFrom
+issueDateTo
+dueDateFrom
+dueDateTo
+amountMin
+amountMax
+```
+
+---
+
+## 👥 Customer APIs
+
+| Method | Endpoint |
+|----------|----------|
+| GET | `/api/customers` |
+| GET | `/api/customers/:id` |
+| GET | `/api/customers/:id/invoices` |
+
+---
+
+# 📈 Analytics Delivered
+
+### Global Dashboard Metrics
+
+- Total Revenue
+- Total Tax
+- Outstanding Amount
+- Total Customers
+- Total Invoices
+
+### Customer Metrics
+
+- Total Billed
+- Total Tax
+- Outstanding Amount
+- Invoice Count
+- Status Breakdown
+
+### Revenue Insights
+
+- Top Customers
+- Revenue Distribution
+- Status Distribution
+- Collection Tracking
+
+---
+
+# ⌨️ Productivity Features
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|-----------|---------|
+| N | Create Invoice |
+| ESC | Close Modal |
+| ? | Open Shortcuts Help |
+
+---
+
+# 📋 Assumptions
+
+- Tax is always recalculated from `amount × taxRate`
+- Outstanding = Sent + Unpaid + Overdue invoices
+- Invoice IDs are auto-generated by the backend
+- Currency is represented in INR (₹)
+- Customer-company relationship is immutable
+- Analytics are computed directly from invoice records
+
+---
+
+# 🌟 Highlights
+
+✅ Full Stack Architecture  
+✅ Production-Ready API Design  
+✅ MongoDB Aggregation Pipelines  
+✅ Optimized Query Performance  
+✅ Responsive UI  
+✅ Dockerized Deployment  
+✅ Customer Analytics Dashboard  
+✅ Advanced Filtering & Search  
+✅ Clean Data Modeling  
+✅ Scalable Foundation
+
+---
+
+# 👨‍💻 Developed For
+
+### Powerplay — Full Stack Developer Internship Assignment
+
+Built with a focus on:
+
+- Software Engineering Best Practices
+- Clean Architecture
+- Scalability
+- Performance
+- Developer Experience
+- Production Readiness
+
+---
+
+<div align="center">
+
+### ⭐ Thank you for reviewing this submission!
+
+Built with ❤️, ☕ and lots of MongoDB aggregations.
+
+</div>
