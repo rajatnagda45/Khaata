@@ -33,10 +33,10 @@ export default function Pagination({ page, limit, total, totalPages, onPageChang
 
   return (
     <div className="flex items-center justify-between px-5 py-4">
-      <div className="text-[13px] text-[#6B7280]">
-        Showing <span className="font-semibold text-[#030712]">{rangeStart}</span> to{' '}
-        <span className="font-semibold text-[#030712]">{rangeEnd}</span> of{' '}
-        <span className="font-semibold text-[#030712]">{total}</span>
+      <div className="text-[13px] text-[var(--gray-500)]">
+        Showing <span className="font-semibold text-[var(--gray-950)]">{rangeStart}</span> to{' '}
+        <span className="font-semibold text-[var(--gray-950)]">{rangeEnd}</span> of{' '}
+        <span className="font-semibold text-[var(--gray-950)]">{total}</span>
       </div>
 
       <div className="flex items-center gap-1">
@@ -58,8 +58,8 @@ export default function Pagination({ page, limit, total, totalPages, onPageChang
               onClick={() => onPageChange(item)}
               className={`flex h-7 min-w-[28px] items-center justify-center px-1.5 text-[13px] font-medium transition-colors ${
                 item === page
-                  ? 'rounded-md bg-[#030712] text-white'
-                  : 'text-[#374151] hover:underline'
+                  ? 'rounded-md bg-[var(--gray-950)] text-white'
+                  : 'text-[var(--gray-700)] hover:underline'
               }`}
             >
               {item}
@@ -67,7 +67,7 @@ export default function Pagination({ page, limit, total, totalPages, onPageChang
           ) : (
             <span
               key={item}
-              className="flex h-7 w-7 items-center justify-center text-[#9CA3AF]"
+              className="flex h-7 w-7 items-center justify-center text-[var(--gray-400)]"
             >
               <MoreHorizontal className="h-4 w-4" />
             </span>

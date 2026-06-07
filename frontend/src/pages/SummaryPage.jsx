@@ -61,15 +61,15 @@ export default function SummaryPage() {
 
       <div className="card mb-6 p-6">
         <div className="mb-4">
-          <h3 className="text-[16px] font-bold text-[#111827]">Invoice Status Distribution</h3>
+          <h3 className="text-[16px] font-bold text-[var(--gray-900)]">Invoice Status Distribution</h3>
         </div>
         <div className="flex flex-wrap gap-2">
           {Object.entries(summary.statusBreakdown).map(([status, count]) => (
             <div
               key={status}
-              className="rounded-full border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-1 text-[13px] text-[#6B7280]"
+              className="rounded-full border border-[var(--gray-200)] bg-[var(--gray-50)] px-3 py-1 text-[13px] text-[var(--gray-500)]"
             >
-              <span className="font-semibold text-[#374151]">{status}</span>: {count}
+              <span className="font-semibold text-[var(--gray-700)]">{status}</span>: {count}
             </div>
           ))}
         </div>

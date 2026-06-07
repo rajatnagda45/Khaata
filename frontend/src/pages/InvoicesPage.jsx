@@ -24,8 +24,8 @@ function ToastStack({ toasts, onDismiss }) {
           key={toast.id}
           className={`animate-slide-up flex items-center gap-3 rounded-lg px-4 py-3 text-[13px] font-medium shadow-[0_4px_12px_rgba(0,0,0,0.15)] ${
             toast.variant === 'success'
-              ? 'bg-[#030712] text-white'
-              : 'border border-[#FECACA] bg-[#FEF2F2] text-[#991B1B]'
+              ? 'bg-[var(--gray-950)] text-white'
+              : 'border border-[var(--status-overdue-border)] bg-[var(--status-overdue-bg)] text-[var(--status-overdue-text)]'
           }`}
         >
           <div className="flex-1">
@@ -178,11 +178,11 @@ export default function InvoicesPage() {
 
       {!loading && !error && !invoices.length ? (
         <div className="py-16 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F3F4F6] text-[22px]">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--gray-100)] text-[22px]">
             🔍
           </div>
-          <p className="mb-1 text-[15px] font-semibold text-[#111827]">No invoices found</p>
-          <p className="mb-5 text-[13px] text-[#9CA3AF]">Try adjusting your filters or search terms</p>
+          <p className="mb-1 text-[15px] font-semibold text-[var(--gray-900)]">No invoices found</p>
+          <p className="mb-5 text-[13px] text-[var(--gray-400)]">Try adjusting your filters or search terms</p>
           <button type="button" onClick={() => startTransition(() => resetFilters())} className="btn-secondary">
             Clear all filters
           </button>

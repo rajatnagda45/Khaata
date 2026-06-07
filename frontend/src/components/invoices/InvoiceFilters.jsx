@@ -96,7 +96,7 @@ export default function InvoiceFilters({
 
       {activeFilterCount > 0 && (
         <div className="mt-4 flex items-center justify-end gap-3">
-          <span className="text-[13px] font-medium text-[#6B7280]">
+          <span className="text-[13px] font-medium text-[var(--gray-500)]">
             ● {activeFilterCount} active
           </span>
           <button type="button" onClick={onClear} className="btn-ghost">

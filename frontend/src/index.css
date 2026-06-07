@@ -57,6 +57,59 @@
   --border-focus:    #16A34A;
 }
 
+[data-theme="dark"] {
+  /* Backgrounds */
+  --white:          #000000;
+  --gray-50:        #0A0A0A;
+  --gray-100:       #111827;
+  --gray-150:       #1F2937;
+  --gray-200:       #374151;
+  --gray-300:       #4B5563;
+  --gray-400:       #6B7280;
+  --gray-500:       #9CA3AF;
+  --gray-600:       #D1D5DB;
+  --gray-700:       #E5E7EB;
+  --gray-800:       #F3F4F6;
+  --gray-900:       #F9FAFB;
+  --gray-950:       #FFFFFF;
+
+  /* Accent stays largely same, maybe tweak */
+  --accent:         #16A34A;
+  --accent-light:   #14532D;
+  --accent-hover:   #15803D;
+  --accent-text:    #4ADE80;
+
+  /* Semantic status colors inverted for dark mode */
+  --status-paid-bg:      #064E3B;
+  --status-paid-text:    #6EE7B7;
+  --status-paid-border:  #047857;
+
+  --status-unpaid-bg:    #78350F;
+  --status-unpaid-text:  #FCD34D;
+  --status-unpaid-border:#B45309;
+
+  --status-overdue-bg:   #7F1D1D;
+  --status-overdue-text: #FCA5A5;
+  --status-overdue-border:#B91C1C;
+
+  --status-sent-bg:      #1E3A8A;
+  --status-sent-text:    #93C5FD;
+  --status-sent-border:  #1D4ED8;
+
+  --status-draft-bg:     #1F2937;
+  --status-draft-text:   #D1D5DB;
+  --status-draft-border: #374151;
+
+  --status-void-bg:      #111827;
+  --status-void-text:    #9CA3AF;
+  --status-void-border:  #374151;
+
+  /* Borders */
+  --border-default:  #1F2937;
+  --border-strong:   #374151;
+  --border-focus:    #16A34A;
+}
+
 @layer base {
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -94,7 +147,7 @@
 
   /* Cards */
   .card {
-    background: #FFFFFF;
+    background: var(--white);
     border: 1px solid var(--border-default);
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
@@ -121,7 +174,7 @@
   .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
 
   .btn-secondary {
-    background: white;
+    background: var(--white);
     color: var(--gray-700);
     border: 1px solid var(--border-strong);
     padding: 0 14px;
@@ -178,7 +231,7 @@
 
   /* Inputs */
   .input, .select {
-    background: white;
+    background: var(--white);
     border: 1px solid var(--border-strong);
     border-radius: 8px;
     height: 36px;

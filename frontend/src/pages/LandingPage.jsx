@@ -12,7 +12,7 @@ import ScrollZoom from '../components/landing/animations/ScrollZoom';
 export default function LandingPage() {
   return (
     <SmoothScroll>
-      <div className="landing-wrapper bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
+      <div className="landing-wrapper bg-[var(--white)] dark:bg-black text-black dark:text-white transition-colors duration-500">
         
 
   {/*  NAV  */}
@@ -91,7 +91,7 @@ import ScrollZoom from '../components/landing/animations/ScrollZoom';
 export default function LandingPage() {
   return (
     <SmoothScroll>
-      <div className="landing-wrapper bg-white dark:bg-black text-black dark:text-white transition-colors duration-500">
+      <div className="landing-wrapper bg-[var(--white)] dark:bg-black text-black dark:text-white transition-colors duration-500">
         
 
   {/*  NAV  */}

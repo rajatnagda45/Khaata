@@ -132,15 +132,15 @@ export default function InvoiceModal({
       }}
       role="presentation"
     >
-      <div className="animate-modal-in flex max-h-[90vh] w-full max-w-[480px] flex-col overflow-y-auto rounded-[16px] bg-white p-7 shadow-[0_20px_60px_rgba(0,0,0,0.15)]">
-        <div className="mb-6 flex items-center justify-between border-b border-[#F3F4F6] pb-4">
-          <h2 className="text-[18px] font-bold text-[#030712]">
+      <div className="animate-modal-in flex max-h-[90vh] w-full max-w-[480px] flex-col overflow-y-auto rounded-[16px] bg-[var(--white)] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.15)]">
+        <div className="mb-6 flex items-center justify-between border-b border-[var(--gray-100)] pb-4">
+          <h2 className="text-[18px] font-bold text-[var(--gray-950)]">
             {mode === 'create' ? 'New Invoice' : 'Edit Invoice'}
           </h2>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-7 w-7 items-center justify-center rounded-full text-[#6B7280] transition-colors hover:bg-[#F3F4F6] hover:text-[#111827]"
+            className="flex h-7 w-7 items-center justify-center rounded-full text-[var(--gray-500)] transition-colors hover:bg-[var(--gray-100)] hover:text-[var(--gray-900)]"
           >
             <X className="h-[18px] w-[18px]" />
           </button>
@@ -149,11 +149,11 @@ export default function InvoiceModal({
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="space-y-1.5">
             <label className="input-label">
-              Customer <span className="text-[#991B1B]">*</span>
+              Customer <span className="text-[var(--status-overdue-text)]">*</span>
             </label>
             <div className="relative">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <Search className="h-4 w-4 text-[#9CA3AF]" />
+                <Search className="h-4 w-4 text-[var(--gray-400)]" />
               </div>
               <input
                 value={customerQuery}
@@ -172,37 +172,37 @@ export default function InvoiceModal({
                 className="input pl-9"
               />
               {menuOpen ? (
-                <div className="absolute z-20 mt-1 max-h-56 w-full overflow-auto rounded-lg border border-[#E5E7EB] bg-white py-1 shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+                <div className="absolute z-20 mt-1 max-h-56 w-full overflow-auto rounded-lg border border-[var(--gray-200)] bg-[var(--white)] py-1 shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
                   {filteredCustomers.length ? (
                     filteredCustomers.map((customer) => (
                       <button
                         key={customer._id}
                         type="button"
                         onClick={() => handleCustomerSelect(customer)}
-                        className="flex w-full flex-col px-3 py-2 text-left hover:bg-[#F9FAFB]"
+                        className="flex w-full flex-col px-3 py-2 text-left hover:bg-[var(--gray-50)]"
                       >
-                        <span className="text-[14px] font-semibold text-[#111827]">{customer.name}</span>
-                        <span className="text-[12px] text-[#6B7280]">{customer.company}</span>
+                        <span className="text-[14px] font-semibold text-[var(--gray-900)]">{customer.name}</span>
+                        <span className="text-[12px] text-[var(--gray-500)]">{customer.company}</span>
                       </button>
                     ))
                   ) : (
-                    <p className="px-3 py-2 text-[13px] text-[#6B7280]">No matching customers.</p>
+                    <p className="px-3 py-2 text-[13px] text-[var(--gray-500)]">No matching customers.</p>
                   )}
                 </div>
               ) : null}
             </div>
-            {errors.customerId ? <p className="text-[12px] text-[#991B1B]">{errors.customerId}</p> : null}
+            {errors.customerId ? <p className="text-[12px] text-[var(--status-overdue-text)]">{errors.customerId}</p> : null}
           </div>
 
           <div className="space-y-1.5">
             <label className="input-label">Company</label>
-            <input value={formValues.company} readOnly className="input bg-[#F9FAFB] text-[#6B7280]" />
+            <input value={formValues.company} readOnly className="input bg-[var(--gray-50)] text-[var(--gray-500)]" />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label className="input-label">
-                Amount <span className="text-[#991B1B]">*</span>
+                Amount <span className="text-[var(--status-overdue-text)]">*</span>
               </label>
               <input
                 type="number"
@@ -213,12 +213,12 @@ export default function InvoiceModal({
                 className="input mono"
                 placeholder="0.00"
               />
-              {errors.amount ? <p className="text-[12px] text-[#991B1B]">{errors.amount}</p> : null}
+              {errors.amount ? <p className="text-[12px] text-[var(--status-overdue-text)]">{errors.amount}</p> : null}
             </div>
 
             <div className="space-y-1.5">
               <label className="input-label">
-                Tax Rate <span className="text-[#991B1B]">*</span>
+                Tax Rate <span className="text-[var(--status-overdue-text)]">*</span>
               </label>
               <div className="flex flex-wrap gap-[6px]">
                 {taxRates.map((rate) => (
@@ -228,8 +228,8 @@ export default function InvoiceModal({
                     onClick={() => setFormValues((c) => ({ ...c, taxRate: String(rate) }))}
                     className={`rounded-md px-3 py-1.5 text-[13px] font-medium transition-colors ${
                       String(rate) === formValues.taxRate
-                        ? 'border-[1.5px] border-[#16A34A] bg-[#F0FDF4] text-[#166534]'
-                        : 'border border-[#D1D5DB] bg-white text-[#374151] hover:bg-[#F9FAFB]'
+                        ? 'border-[1.5px] border-[var(--accent)] bg-[#F0FDF4] text-[#166534]'
+                        : 'border border-[var(--gray-300)] bg-[var(--white)] text-[var(--gray-700)] hover:bg-[var(--gray-50)]'
                     }`}
                   >
                     {rate}%
@@ -242,7 +242,7 @@ export default function InvoiceModal({
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <label className="input-label">
-                Issue Date <span className="text-[#991B1B]">*</span>
+                Issue Date <span className="text-[var(--status-overdue-text)]">*</span>
               </label>
               <input
                 type="date"
@@ -250,12 +250,12 @@ export default function InvoiceModal({
                 onChange={handleFieldChange('issueDate')}
                 className="input mono"
               />
-              {errors.issueDate ? <p className="text-[12px] text-[#991B1B]">{errors.issueDate}</p> : null}
+              {errors.issueDate ? <p className="text-[12px] text-[var(--status-overdue-text)]">{errors.issueDate}</p> : null}
             </div>
 
             <div className="space-y-1.5">
               <label className="input-label">
-                Due Date <span className="text-[#991B1B]">*</span>
+                Due Date <span className="text-[var(--status-overdue-text)]">*</span>
               </label>
               <input
                 type="date"
@@ -263,13 +263,13 @@ export default function InvoiceModal({
                 onChange={handleFieldChange('dueDate')}
                 className="input mono"
               />
-              {errors.dueDate ? <p className="text-[12px] text-[#991B1B]">{errors.dueDate}</p> : null}
+              {errors.dueDate ? <p className="text-[12px] text-[var(--status-overdue-text)]">{errors.dueDate}</p> : null}
             </div>
           </div>
 
           <div className="space-y-1.5">
             <label className="input-label">
-              Status <span className="text-[#991B1B]">*</span>
+              Status <span className="text-[var(--status-overdue-text)]">*</span>
             </label>
             <select value={formValues.status} onChange={handleFieldChange('status')} className="select">
               {statuses.map((status) => (
@@ -280,11 +280,11 @@ export default function InvoiceModal({
             </select>
           </div>
 
-          <div className="mt-6 flex gap-6 rounded-lg border border-[#E5E7EB] bg-[#F9FAFB] px-4 py-3.5">
-            <span className="mono text-[14px] font-semibold text-[#030712]">
+          <div className="mt-6 flex gap-6 rounded-lg border border-[var(--gray-200)] bg-[var(--gray-50)] px-4 py-3.5">
+            <span className="mono text-[14px] font-semibold text-[var(--gray-950)]">
               Tax: {formatCurrency(preview.tax)}
             </span>
-            <span className="mono text-[14px] font-semibold text-[#030712]">
+            <span className="mono text-[14px] font-semibold text-[var(--gray-950)]">
               Total: {formatCurrency(preview.total)}
             </span>
           </div>

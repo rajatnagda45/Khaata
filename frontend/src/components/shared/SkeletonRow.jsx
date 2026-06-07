@@ -1,14 +1,14 @@
 export default function SkeletonRow({ count = 8, columns = 6 }) {
   return (
     <div className="card w-full overflow-hidden">
-      <div className="flex h-10 items-center border-b border-[#E5E7EB] bg-[#F9FAFB] px-5">
+      <div className="flex h-10 items-center border-b border-[var(--gray-200)] bg-[var(--gray-50)] px-5">
         <div className="skeleton h-3 w-24"></div>
       </div>
       {Array.from({ length: count }).map((_, i) => (
         <div
           // eslint-disable-next-line react/no-array-index-key
           key={`skeleton-${i}`}
-          className="flex h-14 items-center gap-4 border-b border-[#F3F4F6] px-5 last:border-b-0"
+          className="flex h-14 items-center gap-4 border-b border-[var(--gray-100)] px-5 last:border-b-0"
         >
           {Array.from({ length: columns }).map((_, j) => (
             <div

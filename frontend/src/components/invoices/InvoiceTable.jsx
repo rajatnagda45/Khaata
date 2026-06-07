@@ -7,10 +7,10 @@ function SortButton({ active, direction, onClick, label }) {
       type="button"
       onClick={onClick}
       className={`group inline-flex items-center gap-1 ${
-        active ? 'text-[#16A34A]' : 'text-[#6B7280] hover:text-[#374151]'
+        active ? 'text-[var(--accent)]' : 'text-[var(--gray-500)] hover:text-[var(--gray-700)]'
       }`}
     >
-      <span className="group-hover:border-b group-hover:border-dotted group-hover:border-[#9CA3AF]">
+      <span className="group-hover:border-b group-hover:border-dotted group-hover:border-[var(--gray-400)]">
         {label}
       </span>
       {active ? (
@@ -39,18 +39,18 @@ export default function InvoiceTable({
 }) {
   return (
     <div className="card overflow-hidden">
-      <div className="flex items-center justify-between border-b border-[#E5E7EB] px-5 py-4">
-        <div className="text-[13px] text-[#6B7280]">
+      <div className="flex items-center justify-between border-b border-[var(--gray-200)] px-5 py-4">
+        <div className="text-[13px] text-[var(--gray-500)]">
           Showing {invoices.length} invoices
         </div>
-        <div className="rounded-full border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-1 text-[12px] font-medium text-[#374151]">
+        <div className="rounded-full border border-[var(--gray-200)] bg-[var(--gray-50)] px-3 py-1 text-[12px] font-medium text-[var(--gray-700)]">
           Sorted by {sortBy === 'issueDate' ? 'latest issue date' : sortBy} {sortOrder === 'asc' ? '↑' : '↓'}
         </div>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full border-collapse">
-          <thead className="sticky top-0 z-10 bg-[#F9FAFB] shadow-[0_1px_0_#E5E7EB]">
-            <tr className="text-left text-[11px] font-semibold uppercase tracking-[0.06em] text-[#6B7280]">
+          <thead className="sticky top-0 z-10 bg-[var(--gray-50)] shadow-[0_1px_0_var(--gray-200)]">
+            <tr className="text-left text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--gray-500)]">
               <th className="h-10 px-5 align-middle">Invoice</th>
               <th className="h-10 px-5 align-middle">Customer</th>
               <th className="h-10 px-5 text-right align-middle">

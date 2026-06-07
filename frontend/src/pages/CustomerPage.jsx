@@ -16,9 +16,9 @@ function StatusPills({ statusBreakdown }) {
       {Object.entries(statusBreakdown).map(([status, count]) => (
         <div
           key={status}
-          className="rounded-full border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-1 text-[13px] text-[#6B7280]"
+          className="rounded-full border border-[var(--gray-200)] bg-[var(--gray-50)] px-3 py-1 text-[13px] text-[var(--gray-500)]"
         >
-          <span className="font-semibold text-[#374151]">{status}</span>: {count}
+          <span className="font-semibold text-[var(--gray-700)]">{status}</span>: {count}
         </div>
       ))}
     </div>
@@ -56,7 +56,7 @@ export function CustomersListPage() {
           <h1 className="text-title">Customer Directory</h1>
         </div>
         <label className="relative flex h-9 w-[280px] items-center">
-          <Search className="absolute left-3 h-4 w-4 text-[#9CA3AF]" />
+          <Search className="absolute left-3 h-4 w-4 text-[var(--gray-400)]" />
           <input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
@@ -78,17 +78,17 @@ export function CustomersListPage() {
             <Link
               key={customer._id}
               to={`/customers/${customer._id}`}
-              className="group rounded-xl border border-[#E5E7EB] bg-white p-5 transition-all duration-200 hover:border-[#D1D5DB] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
+              className="group rounded-xl border border-[var(--gray-200)] bg-[var(--white)] p-5 transition-all duration-200 hover:border-[var(--gray-300)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.05)]"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <div className="mb-3 inline-flex items-center justify-center rounded-lg bg-[#F3F4F6] px-2.5 py-1 text-[11px] font-bold tracking-[0.05em] text-[#374151]">
+                  <div className="mb-3 inline-flex items-center justify-center rounded-lg bg-[var(--gray-100)] px-2.5 py-1 text-[11px] font-bold tracking-[0.05em] text-[var(--gray-700)]">
                     {customer.initials}
                   </div>
-                  <h3 className="text-[16px] font-bold text-[#111827] group-hover:text-[#16A34A] transition-colors">
+                  <h3 className="text-[16px] font-bold text-[var(--gray-900)] group-hover:text-[var(--accent)] transition-colors">
                     {customer.name}
                   </h3>
-                  <p className="mt-1 text-[13px] text-[#6B7280]">{customer.company}</p>
+                  <p className="mt-1 text-[13px] text-[var(--gray-500)]">{customer.company}</p>
                 </div>
               </div>
             </Link>
@@ -173,7 +173,7 @@ export function CustomerPage() {
     {
       label: 'Outstanding',
       value: formatCurrency(profile.metrics.outstanding),
-      accent: 'text-[#991B1B]' // If there is outstanding, maybe red? Or just dark. Let's keep it default if none.
+      accent: 'text-[var(--status-overdue-text)]' // If there is outstanding, maybe red? Or just dark. Let's keep it default if none.
     },
     {
       label: 'Total Invoices',
@@ -183,12 +183,12 @@ export function CustomerPage() {
 
   return (
     <div className="page">
-      <div className="mb-6 flex items-center gap-2 text-[12px] font-medium text-[#6B7280]">
-        <Link to="/customers" className="hover:text-[#111827]">
+      <div className="mb-6 flex items-center gap-2 text-[12px] font-medium text-[var(--gray-500)]">
+        <Link to="/customers" className="hover:text-[var(--gray-900)]">
           Customers
         </Link>
-        <ChevronRight className="h-3.5 w-3.5 text-[#D1D5DB]" />
-        <span className="text-[#111827]">{profile.customer.name}</span>
+        <ChevronRight className="h-3.5 w-3.5 text-[var(--gray-300)]" />
+        <span className="text-[var(--gray-900)]">{profile.customer.name}</span>
       </div>
 
       <CustomerProfile customer={profile.customer} />
@@ -206,19 +206,19 @@ export function CustomerPage() {
 
       <div className="card mb-6 p-5">
         <div className="mb-4">
-          <p className="text-[14px] font-semibold text-[#111827]">Invoice Status</p>
+          <p className="text-[14px] font-semibold text-[var(--gray-900)]">Invoice Status</p>
         </div>
         <StatusPills statusBreakdown={profile.metrics.statusBreakdown} />
       </div>
 
       <div className="card overflow-hidden">
-        <div className="border-b border-[#E5E7EB] px-5 py-4">
-          <h3 className="text-[15px] font-semibold text-[#111827]">Invoice History</h3>
+        <div className="border-b border-[var(--gray-200)] px-5 py-4">
+          <h3 className="text-[15px] font-semibold text-[var(--gray-900)]">Invoice History</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full border-collapse">
-            <thead className="bg-[#F9FAFB]">
-              <tr className="text-left text-[11px] font-semibold uppercase tracking-[0.06em] text-[#6B7280]">
+            <thead className="bg-[var(--gray-50)]">
+              <tr className="text-left text-[11px] font-semibold uppercase tracking-[0.06em] text-[var(--gray-500)]">
                 <th className="h-10 px-5 align-middle">Invoice</th>
                 <th className="h-10 px-5 text-right align-middle">Total</th>
                 <th className="h-10 px-5 align-middle">Status</th>
@@ -227,18 +227,18 @@ export function CustomerPage() {
             </thead>
             <tbody>
               {invoices.map((invoice) => (
-                <tr key={invoice._id} className="border-b border-[#F3F4F6] last:border-0 hover:bg-[#F9FAFB] transition-colors">
-                  <td className="mono h-[52px] px-5 align-middle text-[13px] font-medium text-[#111827]">{invoice.invoiceId}</td>
-                  <td className="mono h-[52px] px-5 text-right align-middle text-[13px] font-medium text-[#111827]">{formatCurrency(invoice.total)}</td>
+                <tr key={invoice._id} className="border-b border-[var(--gray-100)] last:border-0 hover:bg-[var(--gray-50)] transition-colors">
+                  <td className="mono h-[52px] px-5 align-middle text-[13px] font-medium text-[var(--gray-900)]">{invoice.invoiceId}</td>
+                  <td className="mono h-[52px] px-5 text-right align-middle text-[13px] font-medium text-[var(--gray-900)]">{formatCurrency(invoice.total)}</td>
                   <td className="h-[52px] px-5 align-middle">
                     <StatusBadge status={invoice.status} />
                   </td>
-                  <td className="mono h-[52px] px-5 align-middle text-[13px] text-[#6B7280]">{formatDate(invoice.issueDate)}</td>
+                  <td className="mono h-[52px] px-5 align-middle text-[13px] text-[var(--gray-500)]">{formatDate(invoice.issueDate)}</td>
                 </tr>
               ))}
               {invoices.length === 0 && (
                 <tr>
-                  <td colSpan={4} className="h-20 text-center text-[13px] text-[#6B7280]">
+                  <td colSpan={4} className="h-20 text-center text-[13px] text-[var(--gray-500)]">
                     No invoices found.
                   </td>
                 </tr>

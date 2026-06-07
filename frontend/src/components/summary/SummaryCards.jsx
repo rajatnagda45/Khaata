@@ -15,10 +15,10 @@ export default function SummaryCards({ cards }) {
         return (
           <div key={card.label} className="card p-5">
             <div className="mb-3">
-              <Icon className="h-5 w-5 text-[#9CA3AF]" />
+              <Icon className="h-5 w-5 text-[var(--gray-400)]" />
             </div>
-            <p className="text-[13px] font-medium text-[#6B7280]">{card.label}</p>
-            <p className="mono mt-1 text-[24px] font-semibold tracking-tight text-[#111827]">
+            <p className="text-[13px] font-medium text-[var(--gray-500)]">{card.label}</p>
+            <p className="mono mt-1 text-[24px] font-semibold tracking-tight text-[var(--gray-900)]">
               {card.value}
             </p>
           </div>

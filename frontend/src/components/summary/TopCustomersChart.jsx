@@ -14,11 +14,11 @@ function CustomTooltip({ active, payload }) {
   if (!active || !payload?.length) return null;
   const entry = payload[0].payload;
   return (
-    <div className="rounded-lg border border-[#E5E7EB] bg-white p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
-      <p className="text-[14px] font-semibold text-[#111827]">{entry.name}</p>
-      <p className="text-[12px] text-[#6B7280]">{entry.company}</p>
-      <p className="mono mt-3 text-[14px] font-semibold text-[#030712]">{formatCurrency(entry.totalBilled)}</p>
-      <p className="text-[12px] text-[#6B7280]">{entry.invoiceCount} invoices</p>
+    <div className="rounded-lg border border-[var(--gray-200)] bg-[var(--white)] p-4 shadow-[0_4px_12px_rgba(0,0,0,0.05)]">
+      <p className="text-[14px] font-semibold text-[var(--gray-900)]">{entry.name}</p>
+      <p className="text-[12px] text-[var(--gray-500)]">{entry.company}</p>
+      <p className="mono mt-3 text-[14px] font-semibold text-[var(--gray-950)]">{formatCurrency(entry.totalBilled)}</p>
+      <p className="text-[12px] text-[var(--gray-500)]">{entry.invoiceCount} invoices</p>
     </div>
   );
 }
@@ -28,9 +28,9 @@ export default function TopCustomersChart({ data }) {
     <div className="card p-6">
       <div className="mb-6 flex items-center justify-between">
         <div>
-          <h3 className="text-[16px] font-bold text-[#111827]">Top Customers by Value</h3>
+          <h3 className="text-[16px] font-bold text-[var(--gray-900)]">Top Customers by Value</h3>
         </div>
-        <span className="rounded-full border border-[#E5E7EB] bg-[#F9FAFB] px-3 py-1 text-[12px] font-medium text-[#374151]">
+        <span className="rounded-full border border-[var(--gray-200)] bg-[var(--gray-50)] px-3 py-1 text-[12px] font-medium text-[var(--gray-700)]">
           Highest billed first
         </span>
       </div>
@@ -41,33 +41,33 @@ export default function TopCustomersChart({ data }) {
             layout="vertical"
             margin={{ top: 8, right: 24, left: 12, bottom: 8 }}
           >
-            <CartesianGrid stroke="#F3F4F6" horizontal={false} />
+            <CartesianGrid stroke="var(--gray-100)" horizontal={false} />
             <XAxis
               type="number"
-              stroke="#9CA3AF"
+              stroke="var(--gray-400)"
               tickFormatter={(value) => formatCurrency(value).replace('.00', '')}
-              tick={{ fontSize: 12, fill: '#6B7280' }}
-              axisLine={{ stroke: '#E5E7EB' }}
+              tick={{ fontSize: 12, fill: 'var(--gray-500)' }}
+              axisLine={{ stroke: 'var(--gray-200)' }}
               tickLine={false}
             />
             <YAxis
               type="category"
               dataKey="name"
               width={120}
-              stroke="#9CA3AF"
-              tick={{ fontSize: 12, fill: '#374151', fontWeight: 500 }}
+              stroke="var(--gray-400)"
+              tick={{ fontSize: 12, fill: 'var(--gray-700)', fontWeight: 500 }}
               axisLine={false}
               tickLine={false}
             />
-            <Tooltip content={<CustomTooltip />} cursor={{ fill: '#F9FAFB' }} />
+            <Tooltip content={<CustomTooltip />} cursor={{ fill: 'var(--gray-50)' }} />
             <Bar
               dataKey="totalBilled"
               radius={[0, 4, 4, 0]}
               barSize={32}
-              fill="#16A34A"
+              fill="var(--accent)"
             >
               {data.map((entry) => (
-                <Cell key={entry.name} fill="#16A34A" />
+                <Cell key={entry.name} fill="var(--accent)" />
               ))}
             </Bar>
           </BarChart>
